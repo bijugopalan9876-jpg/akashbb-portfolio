@@ -26,6 +26,7 @@ interface ProjectData {
   buttonType: 'repo' | 'showcase' | 'ds-cards';
   buttonLabel?: string;
   buttonIcon?: string;
+  githubUrl: string;
   overviewTitle: string;
   overviewDetails: string;
   codeSnippet: string;
@@ -50,6 +51,7 @@ const FEATURED_PROJECTS_SCREENSHOT: ProjectData[] = [
     buttonType: 'repo',
     buttonLabel: 'View Repository',
     buttonIcon: 'code',
+    githubUrl: 'https://github.com/bijugopalan9876-jpg/MenuDriven2DGraphicsEditor',
     overviewTitle: 'Menu Driven 2D Graphics Editor in C',
     overviewDetails:
       'Built using modular C programming and custom linked-list shape buffers. Supports drawing primitives (lines, rectangles, circles, polygons), coordinate transformations (translation, scaling), and interactive CLI menu state management.',
@@ -85,6 +87,7 @@ void renderCanvas(ShapeNode* head) {
     buttonType: 'repo',
     buttonLabel: 'View Repository',
     buttonIcon: 'code',
+    githubUrl: 'https://github.com/bijugopalan9876-jpg/akashbb-portfolio',
     overviewTitle: 'Personal Portfolio Website (Neural Dark Glass)',
     overviewDetails:
       'Designed with a mobile-first Neural Dark Glass aesthetic. Features responsive layouts, accessible semantic HTML5 landmarks, interactive certification verification modals, and real-time section navigation.',
@@ -116,6 +119,7 @@ const observer = new IntersectionObserver((entries) => {
     buttonType: 'showcase',
     buttonLabel: 'Project Showcase',
     buttonIcon: 'deployed_code',
+    githubUrl: 'https://github.com/bijugopalan9876-jpg',
     overviewTitle: 'Autonomous Object Detection Robot Car',
     overviewDetails:
       'Integrates a Raspberry Pi camera feed with OpenCV frame preprocessing and a quantized TensorFlow Lite MobileNet SSD model. Detects obstacles and bounding boxes in real time to trigger GPIO motor controller steering maneuvers.',
@@ -149,6 +153,7 @@ const DATA_SCIENCE_PROJECTS: ProjectData[] = [
       'Beginner-level exploratory analysis applying Pandas and NumPy to clean missing observations, perform statistical summaries, and identify key demographic trends from open repositories.',
     tags: ['Python', 'Pandas', 'NumPy', 'EDA'],
     buttonType: 'ds-cards',
+    githubUrl: 'https://github.com/bijugopalan9876-jpg',
     hasDistributionSvg: true,
     overviewBtnStyle: 'bg-primary-container/15 text-primary active:bg-primary-container/25',
     overviewIcon: 'visibility',
@@ -179,6 +184,7 @@ print(summary)`,
       'Plotting multi-variable scatter clusters, custom correlation heatmaps, and frequency distributions using Matplotlib and Seaborn to communicate insights clearly.',
     tags: ['Matplotlib', 'Seaborn', 'Data Viz'],
     buttonType: 'ds-cards',
+    githubUrl: 'https://github.com/bijugopalan9876-jpg',
     hasMetricBar: true,
     overviewBtnStyle: 'bg-secondary-container/30 text-secondary active:bg-secondary-container/40',
     overviewIcon: 'pie_chart',
@@ -209,6 +215,7 @@ plt.savefig("correlation_matrix.svg")`,
       'Modular Python programs solving algorithmic challenges, automating directory management tasks, parsing structured JSON feeds, and evaluating basic sorting efficiency.',
     tags: ['Algorithms', 'Automation', 'CLI Tools', 'C Logic'],
     buttonType: 'ds-cards',
+    githubUrl: 'https://github.com/bijugopalan9876-jpg',
     overviewBtnStyle: 'bg-surface-container-high text-on-surface active:bg-surface-bright',
     overviewIcon: 'bolt',
     overviewTitle: 'Algorithms & Automation Suite',
@@ -1431,7 +1438,7 @@ export default function App() {
                     <div className="flex items-center gap-space-xs pt-space-2xs">
                       <a
                         className="flex-1 flex items-center justify-center gap-1 py-space-xs rounded-lg bg-surface-container text-on-surface font-label-badge text-label-badge active:bg-surface-container-high transition-colors"
-                        href="https://github.com"
+                        href={project.githubUrl}
                         rel="noopener noreferrer"
                         target="_blank"
                       >
@@ -1924,7 +1931,7 @@ export default function App() {
 
             <div className="flex items-center gap-space-xs pt-space-2xs">
               <a
-                href="https://github.com"
+                href={selectedProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 py-space-xs rounded-lg bg-gradient-to-r from-primary-container to-secondary-container text-on-surface font-headline-sm text-[13px] flex items-center justify-center gap-1.5 shadow-md"
